@@ -1,4 +1,4 @@
-# (WIP) browser input by vim
+# (WIP) type anything via Vim
 
 ## プラグイン追加
 
