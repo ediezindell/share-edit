@@ -1,5 +1,20 @@
 # (WIP) browser input by vim
 
+## プラグイン追加
+
+```lua
+---@type LazySpec
+local spec = {
+  dir = "/path/to/share-edit/",
+  dependencies = {
+    "vim-denops/denops.vim",
+  },
+  event = "BufEnter",
+}
+
+return spec
+```
+
 ## サーバー起動
 
 ```sh
