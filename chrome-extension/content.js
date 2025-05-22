@@ -9,7 +9,7 @@ const isEditable = (el) => {
 };
 
 ws.addEventListener("open", () => {
-  document.addEventListener("focusin", (e) => {
+  const sendContent = (e) => {
     const el = e.target;
     if (isInputElement(el) || isEditable(el)) {
       const content = el.value || el.innerText || "";
@@ -20,7 +20,9 @@ ws.addEventListener("open", () => {
         }),
       );
     }
-  });
+  };
+  document.addEventListener("focusin", sendContent);
+  document.addEventListener("keyup", sendContent);
 });
 
 ws.addEventListener("message", (event) => {
