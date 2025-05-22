@@ -16,6 +16,7 @@ export const main: Entrypoint = (denops) => {
         const data = JSON.parse(event.data);
         if (data.type === "focus") {
           const bufnr = await fn.bufnr(denops);
+          fn.deletebufline(denops, bufnr, 1, "$");
           fn.setbufline(denops, bufnr, 1, data.content.trim().split("\n"));
         }
       };
