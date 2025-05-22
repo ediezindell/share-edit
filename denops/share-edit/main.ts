@@ -16,7 +16,7 @@ export const main: Entrypoint = (denops) => {
         const data = JSON.parse(event.data);
         if (data.type === "focus") {
           const bufnr = await fn.bufnr(denops);
-          fn.setbufline(denops, bufnr, 1, data.content.split("\n"));
+          fn.setbufline(denops, bufnr, 1, data.content.trim().split("\n"));
         }
       };
     },
@@ -28,7 +28,7 @@ export const main: Entrypoint = (denops) => {
       assert(buflines, is.ArrayOf(is.String));
 
       socket.send(
-        JSON.stringify({ type: "update", content: buflines.join("\n") }),
+        JSON.stringify({ type: "update", content: buflines.join("\n").trim() }),
       );
     },
   };
